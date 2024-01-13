@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRApi", "SignalRApi\SignalRApi.csproj", "{DC57D1A5-AFB6-4029-B057-B5590E6B910E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebUı", "SignalRWebUı\SignalRWebUı.csproj", "{5B00BB18-5842-4A05-B500-36D215E08F1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC57D1A5-AFB6-4029-B057-B5590E6B910E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC57D1A5-AFB6-4029-B057-B5590E6B910E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC57D1A5-AFB6-4029-B057-B5590E6B910E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC57D1A5-AFB6-4029-B057-B5590E6B910E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B00BB18-5842-4A05-B500-36D215E08F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B00BB18-5842-4A05-B500-36D215E08F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B00BB18-5842-4A05-B500-36D215E08F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B00BB18-5842-4A05-B500-36D215E08F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC35268C-8E68-4DFA-9BB3-5D9798EAED63}
+	EndGlobalSection
+EndGlobal
