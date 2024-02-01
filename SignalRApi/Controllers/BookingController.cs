@@ -30,7 +30,7 @@ namespace SignalRApi.Controllers
             //Yöntem 1
             Booking booking = new Booking()
             {
-                Date = DateTime.Now,
+                Date = createBookingDto.Date,
                 Mail = createBookingDto.Mail,
                 Name = createBookingDto.Name,
                 PersonCount = createBookingDto.PersonCount,
@@ -57,13 +57,13 @@ namespace SignalRApi.Controllers
             Booking booking = new Booking()
             {
                 BookingID = updateBookingDto.BookingID,
-                Date = DateTime.Now,
+                Date = updateBookingDto.Date,
                 Mail = updateBookingDto.Mail,
                 Name = updateBookingDto.Name,
                 PersonCount = updateBookingDto.PersonCount,
                 Phone = updateBookingDto.Phone
             };
-            _BookingService.TAdd(booking);
+            _BookingService.TUpdate(booking);
             return Ok("Booking Alanı Güncellendi");
         }
 
