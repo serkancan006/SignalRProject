@@ -43,6 +43,41 @@ namespace SignalR.BusinessLayer.Concrete
             return _ProductDal.GetProductsWithCategories();
         }
 
+        public int TProductCount()
+        {
+            return _ProductDal.ProductCount();
+        }
+
+        public string TProductNameByMaxPrice()
+        {
+            return _ProductDal.ProductNameByMaxPrice();
+        }
+
+        public string TProductNameByMinPrice()
+        {
+            return _ProductDal.ProductNameByMinPrice();
+        }
+
+        public decimal TProductPriceAvg()
+        {
+            return _ProductDal.ProductPriceAvg();
+        }
+
+        public decimal TProductAvgPriceByHamburger()
+        {
+            return _ProductDal.ProductAvgPriceByHamburger();
+        }
+
+        public int TProdudtCountByCategoryNameDrink()
+        {
+            return _ProductDal.ProdudtCountByCategoryNameDrink();
+        }
+
+        public int TProdudtCountByCategoryNameHamburger()
+        {
+            return _ProductDal.ProdudtCountByCategoryNameHamburger();
+        }
+
         public void TUpdate(Product entity)
         {
             _ProductDal.Update(entity);
