@@ -19,5 +19,7 @@
 --ortalama sipariş tutarı
 --masa sayısı
 
+---------------------------------------------
 
+İstatistik Consume
 

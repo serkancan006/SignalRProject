@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.BusinessLayer", "Si
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.DtoLayer", "SignalR.DtoLayer\SignalR.DtoLayer.csproj", "{EE30CAF4-671B-4FAA-944E-02E245E85B72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{9A0A95B6-226B-4FF0-BA7C-9F2E547A9601}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{9A0A95B6-226B-4FF0-BA7C-9F2E547A9601}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Triggers", "Triggers", "{F349DCF1-2325-4C9F-AF25-6D5DB44895D6}"
+	ProjectSection(SolutionItems) = preProject
+		Triggers.txt = Triggers.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

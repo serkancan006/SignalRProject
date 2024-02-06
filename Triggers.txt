@@ -1,0 +1,36 @@
+Create Trigger IncreaseOrderTotalPrice
+on OrderDetails
+After Insert
+as
+Declare @OrderID int
+Declare @OrderPrice decimal
+Select @OrderID=OrderID from inserted
+Select @OrderPrice=TotalPrice from inserted
+Update Orders Set TotalPrice = TotalPrice + @OrderPrice where OrderID=@OrderID
+
+Create Trigger DecreaseOrderTotalPrice
+on OrderDetails
+After Delete
+as
+Declare @OrderID int
+Declare @OrderPrice decimal
+Select @OrderID=OrderID from deleted
+Select @OrderPrice=TotalPrice from deleted
+Update Orders Set TotalPrice = TotalPrice - @OrderPrice where OrderID=@OrderID
+
+**************************************************************************************
+
+Create Trigger SumMoneyCases
+on Orders
+After Update
+as
+declare @Description nvarchar(max)
+declare @TotalPrice decimal(18,2)
+Select @Description=Description from inserted
+Select @TotalPrice=TotalPrice from inserted
+if(@Description='Hesap Kapatýldý')
+Begin
+Update MoneyCases Set TotalAmount = TotalAmount + @TotalPrice
+End
+
+
