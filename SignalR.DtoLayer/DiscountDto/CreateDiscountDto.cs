@@ -8,7 +8,6 @@ namespace SignalR.DtoLayer.DiscountDto
 {
     public class CreateDiscountDto
     {
-        public int DiscountID { get; set; }
         public string Title { get; set; }
         public string Amoun { get; set; }
         public string Description { get; set; }
