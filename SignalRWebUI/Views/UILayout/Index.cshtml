@@ -1,18 +1,28 @@
-﻿
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+
 @{
     Layout = null;
+    string controllerName = ViewContext?.RouteData?.Values?["controller"]?.ToString() ?? "";
 }
 
 <!DOCTYPE html>
 <html>
 
-@await Component.InvokeAsync("_UILayoutHeadComponentPartial") 
+@await Component.InvokeAsync("_UILayoutHeadComponentPartial")
 
 <body>
 
     <div class="hero_area">
         <div class="bg-box">
-            <img src="~/feane/images/hero-bg.jpg" alt="">
+            @if (controllerName == "Default")
+            {
+                <img src="~/feane/images/hero-bg.jpg" alt="">
+            }
+            else
+            {
+                <img src="~/feane/images/hero-bg.jpg" alt="">
+            }
         </div>
         @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
 
