@@ -1,0 +1,58 @@
+﻿@model UpdateNotificationDto
+@{
+    ViewData["Title"] = "UpdateNotification";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Bildirim İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <input type="hidden" asp-for="NotificationID" />
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni Bildirim Girişi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Notificationname">Bildirim Türü</label>
+                                <input type="text" class="form-control" asp-for="Type" id="Notificationname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Notificationname">Bildirim İkonu</label>
+                                <input type="text" class="form-control" asp-for="Icon" id="Notificationname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Notificationname">Açıklama</label>
+                                <input type="text" class="form-control" asp-for="Description" id="Notificationname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Notificationname">Tarih</label>
+                                <input type="text" class="form-control" asp-for="Date" id="Notificationname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Notificationname">Durum</label>
+                                <input type="text" class="form-control" asp-for="Status" id="Notificationname">
+                            </div>
+                        </div>
+
+                        <div class="card-action">
+                            <button class="btn btn-success">Bildirim Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
