@@ -24,6 +24,20 @@ namespace SignalRApi.Hubs
             _bookingService = bookingService;
             _notificationService = notificationService;
         }
+        public static int clientCount { get; set; } = 1;
+        //Static modifikatörü bu özelliğin sınıfa özgü olduğunu yani bir sınıfın bir örneği olmadan erişilebileceğini belirtir.Bu durumda clientCount özelliği sınıfa aittir ve sınıfın bir örneği olmadan erişilebilir.
+
+        //Bu da clientCountun sınıfın tüm öğeleri arasında paylaşılmasını ve tüm öğeleri tarafından aynı değere sahip olmasını sağlar. Bu özellik sayesinde sınıf düzeyinde sayıcılar ve durum takibi yapabilmek için kullanabiliriz.
+
+        //Static olmadığında bu yüzden sayfayı her yinelediğimizde her sayfa için 1 değeri geliyordu.
+
+        //Peki neden get ve set ekleyerek bir property gibi yazdık da normal bir public static int clientCount = 0 demedik?
+
+        //Bu soruda ise şöyle bir ayrıntı var: Ben ikisini de denedim ve ikisi de gayet istenileni veriyor ve sayfayı her yinelediğimizde yine artan şekilde static sayesinde bize doğru sayıyı gösteriyor.
+
+        //Property olarak vermemiz bize daha fazla esneklik sağlıyor ve ek kontrol veya işlemler eklemek istediğimizde daha büyük kolaylık sağlayabiliyor.
+
+        //İleriye dönük kolaylıklar için property olarak kullanabiliriz ama şu anı kurtarsın dersek değişken olarak da kullanabilirdik.Seçim sizin. (Tercihim propertyden yana)
 
         public async Task SendStatistic()
         {
@@ -114,5 +128,17 @@ namespace SignalRApi.Hubs
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
 
+        public override async Task OnConnectedAsync()
+        {
+            clientCount++;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnConnectedAsync();
+        }
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            clientCount--;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnDisconnectedAsync(exception);
+        }
     }
 }
