@@ -33,4 +33,28 @@ Begin
 Update MoneyCases Set TotalAmount = TotalAmount + @TotalPrice
 End
 
+**************************************************************************************
 
+CREATE TRIGGER CalculateTotalPrice
+
+ON Baskets
+
+AFTER INSERT
+
+AS
+
+DECLARE @BasketID int
+
+DECLARE @Price decimal(18,2)
+
+DECLARE @Count int
+
+SELECT @BasketID = BasketID from inserted
+
+SELECT @Price=Price from inserted
+
+SELECT @Count = Count from inserted
+
+UPDATE Baskets SET TotalPrice=@Price*@Count WHERE BasketID=@BasketID
+
+**************************************************************************************
