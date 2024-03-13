@@ -21,7 +21,7 @@
                     $("#connstatus").text(connection.state);
                     setInterval(() => {
                         connection.invoke("GetBookingList");
-                    }, 5000)
+                    }, 2000)
                 }).catch((err) => { console.log(err) });
 
 
@@ -38,18 +38,22 @@
                                 <th scope="col">Rezervasyon Durumu</th>
                                 <th scope="col">Sil</th>
                                 <th scope="col">Güncelle</th>
+                                <th scope="col">Onayla</th>
+                                <th scope="col">İptal Et</th>
                             </tr>
                         </thead>
                         <tbody>`
                     $.each(value, (index, item) => {
                         tablehtml += `<tr>
-                                        <td>${index+1}</td>
+                                        <th>${index+1}</th>
                                         <td>${item.name}</td>
                                         <td>${item.phone}</td>
                                         <td>${item.personCount}</td>
-                                        <td>${"Reservasyon Alındı"}</td>
+                                        <td>${item.description}</td>
                                         <td><a href="/Booking/DeleteBooking/${item.bookingID}" class="btn btn-outline-danger">Sil</a></td>
                                         <td><a href="/Booking/UpdateBooking/${item.bookingID}" class="btn btn-outline-success">Güncelle</a></td>
+                                        <td><a href="/Booking/BookingStatusApproved/${item.bookingID}" class="btn btn-outline-info">Onayla</a></td>
+                                        <td><a href="/Booking/BookingStatusCancalled/${item.bookingID}" class="btn btn-outline-secondary">İptal Et</a></td>
                                        </tr>`
                     });
                     tablehtml += `</tbody></table>`;

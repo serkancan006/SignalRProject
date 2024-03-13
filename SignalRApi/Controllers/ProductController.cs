@@ -93,6 +93,7 @@ namespace SignalRApi.Controllers
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
             //Yöntem 2 AutoMapper
+            createProductDto.ProductStatus = true;
             _ProductService.TAdd(_mapper.Map<Product>(createProductDto));
             return Ok("Product Kısmı Başarılı Bir Şekilde Eklendi.");
         }
@@ -108,6 +109,7 @@ namespace SignalRApi.Controllers
         [HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
+            updateProductDto.ProductStatus = true;
             _ProductService.TUpdate(_mapper.Map<Product>(updateProductDto));
             return Ok("Product Alanı Güncellendi");
         }

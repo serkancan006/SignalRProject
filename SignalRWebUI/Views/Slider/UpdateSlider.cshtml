@@ -1,6 +1,6 @@
-﻿@model CreateFeatureDto
+﻿@model UpdateSliderDto
 @{
-    ViewData["Title"] = "CreateFeature";
+    ViewData["Title"] = "UpdateSlider";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -13,20 +13,21 @@
                 <form method="post">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Yeni Öne Çıkan Alan Girişi</div>
+                            <div class="card-title">Öne Çıkan Alan Güncelle</div>
                         </div>
                         <div class="card-body">
+                            <input type="hidden" asp-for="SliderID" />
                             <div class="form-group">
-                                <label for="Featuretitle1">Birinci Başlıgını Giriniz.</label>
-                                <input type="text" class="form-control" asp-for="Title1" id="Featuretitle1">
+                                <label for="Slidertitle1">Birinci Başlıgını Giriniz.</label>
+                                <input type="text" class="form-control" asp-for="Title1" id="Slidertitle1">
                             </div>
                             <div class="form-group">
-                                <label for="Featuretitle2">İkinici Başlıgını Giriniz.</label>
-                                <input type="text" class="form-control" asp-for="Title2" id="Featuretitle2">
+                                <label for="Slidertitle2">İkinici Başlıgını Giriniz.</label>
+                                <input type="text" class="form-control" asp-for="Title2" id="Slidertitle2">
                             </div>
                             <div class="form-group">
-                                <label for="Featuretitle3">Üçüncü Başlıgını Giriniz.</label>
-                                <input type="text" class="form-control" asp-for="Title3" id="Featuretitle3">
+                                <label for="Slidertitle3">Üçüncü Başlıgını Giriniz.</label>
+                                <input type="text" class="form-control" asp-for="Title3" id="Slidertitle3">
                             </div>
 
                             <div class="form-group">
@@ -43,7 +44,7 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <button class="btn btn-success">Öne Çıkan Alan Ekle</button>
+                            <button class="btn btn-success">Öne Çıkan Alan Güncelle</button>
                         </div>
                     </div>
                 </form>

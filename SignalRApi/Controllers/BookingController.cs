@@ -34,7 +34,8 @@ namespace SignalRApi.Controllers
                 Mail = createBookingDto.Mail,
                 Name = createBookingDto.Name,
                 PersonCount = createBookingDto.PersonCount,
-                Phone = createBookingDto.Phone
+                Phone = createBookingDto.Phone,
+                Description = createBookingDto.Description
             };
             _BookingService.TAdd(booking);
 
@@ -72,6 +73,20 @@ namespace SignalRApi.Controllers
         {
             var value = _BookingService.TGetByID(id);
             return Ok(value);
+        }
+
+        [HttpGet("[action]/{id}")]
+        public IActionResult BookingStatusApproved(int id)
+        {
+            _BookingService.TBookingStatusApproved(id);
+            return Ok();
+        }
+
+        [HttpGet("[action]/{id}")]
+        public IActionResult BookingStatusCancalled(int id)
+        {
+            _BookingService.TBookingStatusCancalled(id);
+            return Ok();
         }
     }
 }

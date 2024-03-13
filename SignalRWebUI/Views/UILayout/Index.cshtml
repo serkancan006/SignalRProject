@@ -10,31 +10,45 @@
 <html>
 
 @await Component.InvokeAsync("_UILayoutHeadComponentPartial")
-
-<body>
-
-    <div class="hero_area">
-        <div class="bg-box">
-            @if (controllerName == "Default")
-            {
+@if (controllerName == "Default")
+{
+    <body>
+        <div class="hero_area">
+            <div class="bg-box">
                 <img src="~/feane/images/hero-bg.jpg" alt="">
-            }
-            else
-            {
-                <img src="~/feane/images/hero-bg.jpg" alt="">
-            }
+            </div>
+            @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+
+            @await RenderSectionAsync("HomeSlider", false)
         </div>
-        @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+        <!-- book section -->
+        @RenderBody()
+        <!-- end book section -->
+        <!-- footer section -->
+        @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+        <!-- footer section -->
+        @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
 
-        @await RenderSectionAsync("HomeSlider", false)
-    </div>
-    <!-- book section -->
-    @RenderBody()
-    <!-- end book section -->
-    <!-- footer section -->
-    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
-    <!-- footer section -->
-    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+    </body>
+}
+else
+{
+    <body class="sub_page">
+        <div class="hero_area">
+            <div class="bg-box">
+                <img src="~/feane/images/hero-bg.jpg" alt="">
+            </div>
+            @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
 
-</body>
+        </div>
+        <!-- book section -->
+        @RenderBody()
+        <!-- end book section -->
+        <!-- footer section -->
+        @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+        <!-- footer section -->
+        @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
+    </body>
+}
 </html>
